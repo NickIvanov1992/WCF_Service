@@ -12,16 +12,16 @@ namespace WCF_Service
     {
         List<ServerUser> users = new List<ServerUser>();
         int nextId = 1;
-        public int Connect(string Name)
+        public int Connect(string name)
         {
             ServerUser user = new ServerUser()
             {
                 Id = nextId,
-                Name = Name,
+                Name = name,
                 operationContext = OperationContext.Current
             };
             nextId++;
-            SendMessage(user.Name + " подключился в чат",0);
+            SendMessage(" : " + user.Name + " подключился в чат",0);
             users.Add(user);
             return user.Id;
         }
@@ -32,7 +32,7 @@ namespace WCF_Service
             if (users != null)
             {
                 users.Remove(user);
-                SendMessage(user.Name + " покинул чат",0);
+                SendMessage(" : " + user.Name + " покинул чат",0);
             }
         }
 

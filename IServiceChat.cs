@@ -19,4 +19,9 @@ namespace WCF_Service
         [OperationContract(IsOneWay = true)]
         void SendMessage(string msg, int id);
     }
+    public interface IServerChatCallback
+    {
+        [OperationContract(IsOneWay = true)]
+        void MessageChatCallback(string msg);
+    }
 }
